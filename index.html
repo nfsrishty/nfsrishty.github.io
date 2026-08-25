@@ -137,17 +137,30 @@ section{margin-top:88px;scroll-margin-top:32px}
   margin:14px 0 0;letter-spacing:.02em}
 .credit b{font-weight:400;color:var(--pine);letter-spacing:.1em;text-transform:uppercase;margin-right:9px}
 
-/* project screenshots */
-.shots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:20px}
-.shots figure{margin:0;min-width:0}
-.shots .plate{display:block;aspect-ratio:2/1;padding:10px;background:var(--paper-2);
-  border:1px solid var(--rule);border-radius:4px}
-.shots img{width:100%;height:100%;object-fit:contain;object-position:center;display:block}
+/* project screenshots — horizontal strip */
+.shots{display:flex;gap:14px;margin-top:20px;padding-bottom:14px;
+  overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;
+  scroll-snap-type:x proximity;
+  scrollbar-width:thin;scrollbar-color:var(--rule) var(--paper-2)}
+.shots::-webkit-scrollbar{height:7px}
+.shots::-webkit-scrollbar-track{background:var(--paper-2);border-radius:4px}
+.shots::-webkit-scrollbar-thumb{background:var(--rule);border-radius:4px}
+.shots::-webkit-scrollbar-thumb:hover{background:var(--ink-soft)}
+.shots figure{margin:0;flex:0 0 auto;scroll-snap-align:start}
+.shots .plate{display:block;padding:9px;background:var(--paper-2);
+  border:1px solid var(--rule);border-radius:4px;
+  transition:border-color .15s,background .15s}
+.shots a.plate:hover,.shots a.plate:focus-visible{border-color:var(--pine);background:var(--paper)}
+.shots img{height:232px;width:auto;display:block}
 .shots figcaption{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;
   text-transform:uppercase;color:var(--ink-soft);margin-top:8px}
+.shots-hint{display:none;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink-soft);margin:2px 0 0}
+.shots.has-more + .shots-hint{display:block}
 @media (max-width:620px){
-  .shots{grid-template-columns:1fr;gap:16px}
+  .shots img{height:180px}
   .shots .plate{padding:7px}
+}
 }
 
 /* toolkit */
@@ -291,18 +304,25 @@ footer{margin-top:56px;font-family:var(--mono);font-size:11px;color:var(--ink-so
         </ul>
         <div class="stack"><span>Flask</span><span>React</span><span>MySQL</span><span>Hugging Face</span><span>JWT</span></div>
         <p class="credit"><b>My role</b>Backend, APIs, and authentication &middot; Team of 7 &middot; One-week build at Bdtask</p>
-        <div class="shots">
+        <div class="shots" tabindex="0" role="group" aria-label="BongoSeek screenshots">
           <figure>
-            <div class="plate"><img src="assets/bongoseek-chat.webp" width="1400" height="805" loading="lazy" decoding="async"
-              alt="BongoSeek chat screen: a user question about the capital of Bangladesh with the model's answer displayed beneath it, above the message input."></div>
-            <figcaption>Chat interface &middot; model response</figcaption>
+            <a class="plate" href="assets/bongoseek-home.webp" target="_blank" rel="noopener" aria-label="Open the full-size screenshot: Landing page"><img src="assets/bongoseek-home.webp" loading="lazy" decoding="async" alt="BongoSeek landing page describing the chatbot, with a Get Started button and Login and Sign Up in the header."></a>
+            <figcaption>Landing page</figcaption>
           </figure>
           <figure>
-            <div class="plate"><img src="assets/bongoseek-verify.webp" width="670" height="383" loading="lazy" decoding="async"
-              alt="BongoSeek email verification screen prompting the user to enter the one-time code sent to their email address."></div>
-            <figcaption>Two-factor &middot; email one-time code</figcaption>
+            <a class="plate" href="assets/bongoseek-signup.webp" target="_blank" rel="noopener" aria-label="Open the full-size screenshot: Create account"><img src="assets/bongoseek-signup.webp" loading="lazy" decoding="async" alt="BongoSeek Create Account form with username, email and password fields."></a>
+            <figcaption>Create account</figcaption>
+          </figure>
+          <figure>
+            <a class="plate" href="assets/bongoseek-verify.webp" target="_blank" rel="noopener" aria-label="Open the full-size screenshot: Two-factor &middot; email code"><img src="assets/bongoseek-verify.webp" loading="lazy" decoding="async" alt="BongoSeek verification screen prompting the user to enter the one-time code sent to their email address."></a>
+            <figcaption>Two-factor &middot; email code</figcaption>
+          </figure>
+          <figure>
+            <a class="plate" href="assets/bongoseek-chat.webp" target="_blank" rel="noopener" aria-label="Open the full-size screenshot: Chat &middot; model response"><img src="assets/bongoseek-chat.webp" loading="lazy" decoding="async" alt="BongoSeek chat screen showing a question about the capital of Bangladesh and the model&#39;s answer, above the message input."></a>
+            <figcaption>Chat &middot; model response</figcaption>
           </figure>
         </div>
+        <p class="shots-hint">Scroll for more &rarr;</p>
       </article>
 
       <article class="entry">
@@ -319,18 +339,26 @@ footer{margin-top:56px;font-family:var(--mono);font-size:11px;color:var(--ink-so
           <li>Implemented search and filtering by book title, author, and category.</li>
         </ul>
         <div class="stack"><span>Laravel</span><span>Blade</span><span>Tailwind CSS</span><span>MySQL</span></div>
-        <div class="shots">
+        <p class="credit"><b>My role</b>Solo project &middot; interface design, Laravel backend, and front end</p>
+        <div class="shots" tabindex="0" role="group" aria-label="Boi Lagbe? screenshots">
           <figure>
-            <div class="plate"><img src="assets/boi-lagbe-browse.webp" width="1400" height="647" loading="lazy" decoding="async"
-              alt="Boi Lagbe? catalogue page showing available books as cover cards with author and type, above search fields for title, author and category."></div>
-            <figcaption>Catalogue &middot; search and filtering</figcaption>
+            <a class="plate" href="assets/boi-lagbe-browse.webp" target="_blank" rel="noopener" aria-label="Open the full-size screenshot: Catalogue &middot; search and filters"><img src="assets/boi-lagbe-browse.webp" loading="lazy" decoding="async" alt="Boi Lagbe? catalogue of available books as cover cards with author and type, above search fields for title, author and category."></a>
+            <figcaption>Catalogue &middot; search and filters</figcaption>
           </figure>
           <figure>
-            <div class="plate"><img src="assets/boi-lagbe-history.webp" width="1400" height="652" loading="lazy" decoding="async"
-              alt="Boi Lagbe? borrowing and buying history table listing each book with its request type, approval status and request date."></div>
-            <figcaption>Transaction history &middot; approval status</figcaption>
+            <a class="plate" href="assets/boi-lagbe-dashboard.webp" target="_blank" rel="noopener" aria-label="Open the full-size screenshot: Dashboard &middot; requests and approvals"><img src="assets/boi-lagbe-dashboard.webp" loading="lazy" decoding="async" alt="Boi Lagbe? dashboard with a My Requests panel listing each request&#39;s type and status, beside a panel for requests received on the user&#39;s own books."></a>
+            <figcaption>Dashboard &middot; requests and approvals</figcaption>
+          </figure>
+          <figure>
+            <a class="plate" href="assets/boi-lagbe-history.webp" target="_blank" rel="noopener" aria-label="Open the full-size screenshot: History &middot; transaction status"><img src="assets/boi-lagbe-history.webp" loading="lazy" decoding="async" alt="Boi Lagbe? borrowing and buying history table listing each book with its request type, approval status and request date."></a>
+            <figcaption>History &middot; transaction status</figcaption>
+          </figure>
+          <figure>
+            <a class="plate" href="assets/boi-lagbe-signin.webp" target="_blank" rel="noopener" aria-label="Open the full-size screenshot: Sign in"><img src="assets/boi-lagbe-signin.webp" loading="lazy" decoding="async" alt="Boi Lagbe? sign-in page with the illustrated Bengali brand panel beside the email and password form."></a>
+            <figcaption>Sign in</figcaption>
           </figure>
         </div>
+        <p class="shots-hint">Scroll for more &rarr;</p>
       </article>
 
       <article class="entry">
@@ -345,13 +373,18 @@ footer{margin-top:56px;font-family:var(--mono);font-size:11px;color:var(--ink-so
           <li>Used Redux for state management and Material-UI for a responsive interface.</li>
         </ul>
         <div class="stack"><span>Node.js</span><span>Express</span><span>React</span><span>Redux</span><span>MongoDB</span></div>
-        <div class="shots">
+        <p class="credit"><b>My role</b>Solo project &middot; REST API, React front end, and state management</p>
+        <div class="shots" tabindex="0" role="group" aria-label="Memories screenshots">
           <figure>
-            <div class="plate"><img src="assets/memories-feed.webp" width="1400" height="649" loading="lazy" decoding="async"
-              alt="Memories home page: a grid of user posts with images, tags, like counts and delete controls, beside the form for creating a new memory."></div>
-            <figcaption>Post feed &middot; create form &middot; likes</figcaption>
+            <a class="plate" href="assets/memories-feed.webp" target="_blank" rel="noopener" aria-label="Open the full-size screenshot: Post feed &middot; likes"><img src="assets/memories-feed.webp" loading="lazy" decoding="async" alt="Memories home page: a grid of user posts with images, tags, like counts and delete controls, beside the form for creating a new memory."></a>
+            <figcaption>Post feed &middot; likes</figcaption>
+          </figure>
+          <figure>
+            <a class="plate" href="assets/memories-edit.webp" target="_blank" rel="noopener" aria-label="Open the full-size screenshot: Edit post &middot; image upload"><img src="assets/memories-edit.webp" loading="lazy" decoding="async" alt="Memories edit form filled in with a creator name, title, message and tags, with a file chooser for the post image."></a>
+            <figcaption>Edit post &middot; image upload</figcaption>
           </figure>
         </div>
+        <p class="shots-hint">Scroll for more &rarr;</p>
       </article>
     </section>
 
@@ -450,6 +483,28 @@ footer{margin-top:56px;font-family:var(--mono);font-size:11px;color:var(--ink-so
   </main>
 </div>
 </div>
+
+<script>
+(function(){
+  var strips = document.querySelectorAll('.shots');
+  function update(s){
+    s.classList.toggle('has-more', s.scrollWidth - s.clientWidth - Math.ceil(s.scrollLeft) > 4);
+  }
+  function updateAll(){ strips.forEach(update); }
+  strips.forEach(function(s){
+    update(s);
+    s.addEventListener('scroll', function(){ update(s); }, {passive:true});
+    s.querySelectorAll('img').forEach(function(img){
+      if (img.complete) return;
+      img.addEventListener('load', function(){ update(s); }, {once:true});
+      img.addEventListener('error', function(){ update(s); }, {once:true});
+    });
+  });
+  window.addEventListener('resize', updateAll, {passive:true});
+  window.addEventListener('load', updateAll);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(updateAll);
+})();
+</script>
 
 </body>
 </html>
