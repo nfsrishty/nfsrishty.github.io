@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Nahian Faiza Firdows</title>
-<meta name="description" content="Computer Science and Engineering graduate from RUET. Full-stack web development in Laravel, Flask, and React.">
+<title>Nahian Faiza Firdows — Software Developer</title>
+<meta name="description" content="Computer Science and Engineering graduate from RUET. Software engineering across the stack — Laravel, Flask, React, Node.js, and database-backed applications.">
 <link rel="canonical" href="https://nfsrishty.github.io/">
 
 <link rel="icon" href="favicon.ico" sizes="any">
@@ -14,15 +14,15 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://nfsrishty.github.io/">
 <meta property="og:site_name" content="Nahian Faiza Firdows">
-<meta property="og:title" content="Nahian Faiza Firdows | Full-stack Developer">
-<meta property="og:description" content="Computer Science and Engineering graduate from RUET. Full-stack web development in Laravel, Flask, React and Node.js, plus LLM evaluation research.">
+<meta property="og:title" content="Nahian Faiza Firdows | Software Developer">
+<meta property="og:description" content="Computer Science and Engineering graduate from RUET. Software engineering across the stack — Laravel, Flask, React, Node.js, and database-backed applications.">
 <meta property="og:image" content="https://nfsrishty.github.io/assets/og-cover.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Nahian Faiza Firdows — full-stack web development portfolio.">
+<meta property="og:image:alt" content="Nahian Faiza Firdows — software engineering portfolio.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Nahian Faiza Firdows | Full-stack Developer">
-<meta name="twitter:description" content="Full-stack web development, and LLM evaluation research.">
+<meta name="twitter:title" content="Nahian Faiza Firdows | Software Developer">
+<meta name="twitter:description" content="Software engineering across the stack — web applications, APIs, and interfaces.">
 <meta name="twitter:image" content="https://nfsrishty.github.io/assets/og-cover.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,6 +37,7 @@
   --ink-soft:#4A5551;
   --pine:#1F5D4C;
   --signal:#5B45C7;
+  --mint:#7FD1B4;
   --rule:#CFD4CB;
 
   --display:"Bricolage Grotesque",system-ui,sans-serif;
@@ -60,19 +61,16 @@ body{
 a{color:inherit}
 :focus-visible{outline:2.5px solid var(--signal);outline-offset:3px;border-radius:2px}
 
-.wrap{max-width:var(--wrap);margin:0 auto;padding:0 28px}
+.wrap{position:relative;max-width:var(--wrap);margin:0 auto;padding:0 28px}
 
 /* ---------- shell ---------- */
 .shell{display:grid;grid-template-columns:230px 1fr;gap:64px;align-items:start}
 @media (max-width:900px){.shell{grid-template-columns:1fr;gap:0}}
 
-.rail{position:sticky;top:0;padding:44px 0;height:100vh;display:flex;flex-direction:column;justify-content:space-between}
-@media (max-width:900px){.rail{position:static;height:auto;padding:32px 0 0}}
+.rail{position:sticky;top:0;padding:38px 0;height:100vh;display:flex;flex-direction:column;justify-content:space-between}
+@media (max-width:900px){.rail{position:static;height:auto;padding:28px 0 0}}
 
-.mark{font-family:var(--display);font-weight:800;font-size:23px;line-height:1.12;letter-spacing:-.025em}
-.mark span{display:block;color:var(--pine)}
-
-.nav{margin-top:28px;display:flex;flex-direction:column;gap:9px;
+.nav{display:flex;flex-direction:column;gap:9px;
   font-family:var(--mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase}
 .nav a{text-decoration:none;color:var(--ink-soft);display:flex;gap:10px;align-items:baseline;transition:color .15s}
 .nav a:hover{color:var(--pine)}
@@ -82,11 +80,53 @@ a{color:inherit}
 .rail-foot{font-family:var(--mono);font-size:11px;color:var(--ink-soft);line-height:1.7}
 @media (max-width:900px){.rail-foot{display:none}}
 
-.main{padding:46px 0 96px;min-width:0}
+.main{padding:38px 0 96px;min-width:0}
 
 /* ---------- front matter ---------- */
-.front{padding-top:6px}
-.front-lede{font-size:21px;line-height:1.5;margin:0 0 38px}
+.front{padding-top:0}
+
+/* ---------- masthead band ---------- */
+.hero-band{position:relative;overflow:hidden;padding:56px 0 46px;
+  background:var(--ink);color:var(--paper)}
+.hero-band::before{content:"";position:absolute;inset:0;pointer-events:none;background:
+  radial-gradient(56% 130% at 4% -18%, rgba(127,209,180,.17), transparent 62%),
+  radial-gradient(46% 105% at 98% 118%, rgba(91,69,199,.22), transparent 64%)}
+.hero-band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
+  background:linear-gradient(90deg,var(--mint),rgba(127,209,180,0) 62%)}
+.hero-band .wrap{position:relative}
+
+.band-top{display:flex;align-items:center;gap:13px}
+.mark{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;
+  border-radius:9px;background:var(--mint);color:var(--ink);
+  font-family:var(--display);font-weight:800;font-size:17px;letter-spacing:-.02em;padding-bottom:1px}
+.kicker{margin:0;font-family:var(--mono);font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;color:rgba(243,244,240,.52)}
+
+.band-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.84fr);gap:0 56px;
+  align-items:end;margin:30px 0 32px}
+.masthead{margin:0;font-family:var(--display);font-weight:800;
+  font-size:clamp(38px,6.6vw,88px);line-height:.99;letter-spacing:-.04em}
+.masthead span{display:block;color:var(--mint)}
+.band-grid .front-lede{margin:0;font-size:19px;line-height:1.5;color:rgba(243,244,240,.87)}
+.hero-band .hl{color:var(--mint)}
+
+.band-foot{display:flex;flex-wrap:wrap;gap:16px 32px;align-items:center;justify-content:space-between;
+  border-top:1px solid rgba(243,244,240,.16);padding-top:24px}
+.avail{display:flex;align-items:center;gap:10px;margin:0;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mint)}
+.avail .dot{width:7px;height:7px;border-radius:50%;background:var(--mint);flex:0 0 auto;
+  box-shadow:0 0 0 3.5px rgba(127,209,180,.22)}
+.hero-band .links a{border-color:rgba(243,244,240,.24);color:var(--paper)}
+.hero-band .links a:hover{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.hero-band .links a.pri{border-color:var(--mint);color:var(--mint)}
+.hero-band .links a.pri:hover{background:var(--mint);color:var(--ink);border-color:var(--mint)}
+
+@media (max-width:900px){
+  .hero-band{padding:40px 0 34px}
+  .band-grid{grid-template-columns:1fr;gap:22px 0;align-items:start;margin:24px 0 26px}
+  .masthead{font-size:clamp(34px,9vw,60px)}
+  .band-foot{justify-content:flex-start;gap:16px}
+}
 
 .facts{margin:0 0 34px;border-top:1.5px solid var(--ink)}
 .facts > div{display:grid;grid-template-columns:150px 1fr;gap:24px;
@@ -137,10 +177,6 @@ section{margin-top:88px;scroll-margin-top:32px}
   margin:14px 0 0;letter-spacing:.02em}
 .credit b{font-weight:400;color:var(--pine);letter-spacing:.1em;text-transform:uppercase;margin-right:9px}
 
-/* featured build marker */
-.feat{margin-left:auto;font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;
-  text-transform:uppercase;color:var(--pine);border:1px solid var(--pine);
-  padding:3px 9px;border-radius:999px;white-space:nowrap}
 
 /* project screenshots — horizontal strip */
 .shots{display:flex;gap:14px;margin-top:20px;padding-bottom:14px;
@@ -197,13 +233,41 @@ footer{margin-top:56px;font-family:var(--mono);font-size:11px;color:var(--ink-so
 </head>
 <body>
 
+<!-- ---------- masthead band ---------- -->
+<div class="hero-band">
+  <div class="wrap">
+    <div class="band-top">
+      <div class="mark" aria-hidden="true">nf</div>
+      <p class="kicker">Portfolio</p>
+    </div>
+
+    <div class="band-grid">
+      <h1 class="masthead">Nahian Faiza<span>Firdows</span></h1>
+      <p class="front-lede">
+        Computer Science and Engineering graduate from <span class="hl">RUET</span>.
+        I build software end to end: server-side logic and APIs, front-end
+        interfaces, and the design work in between.
+      </p>
+    </div>
+
+    <div class="band-foot">
+      <p class="avail"><span class="dot"></span>Open to work</p>
+      <div class="links">
+        <a href="mailto:faizasrishty13@gmail.com">faizasrishty13@gmail.com</a>
+        <a href="https://github.com/nfsrishty">GitHub</a>
+        <a href="https://www.linkedin.com/in/nahian-faiza-srishty-bb0330354/">LinkedIn</a>
+        <a class="pri" href="Nahian-Faiza-Firdows-CV.pdf">Resume</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="wrap">
 <div class="shell">
 
   <!-- ---------- left rail ---------- -->
   <aside class="rail">
     <div>
-      <div class="mark">Nahian Faiza<span>Firdows</span></div>
       <nav class="nav">
         <a href="#work"><span class="n">01</span> Work</a>
         <a href="#builds"><span class="n">02</span> Builds</a>
@@ -224,26 +288,14 @@ footer{margin-top:56px;font-family:var(--mono);font-size:11px;color:var(--ink-so
 
     <!-- front matter: factual, no pitch -->
     <header class="front">
-      <p class="front-lede">
-        Computer Science and Engineering graduate from <span class="hl">RUET</span>.
-        I build web applications end to end: server-side logic and APIs, front-end
-        interfaces, and the design work in between.
-      </p>
-
       <dl class="facts">
-        <div><dt>Discipline</dt><dd>Full-stack web development</dd></div>
+        <div><dt>Discipline</dt><dd>Software engineering — web applications and APIs</dd></div>
         <div><dt>Server-side</dt><dd>Laravel, Flask, Node.js, MySQL, MongoDB</dd></div>
         <div><dt>Interface</dt><dd>React, Tailwind CSS, Figma, Webflow</dd></div>
         <div><dt>Education</dt><dd>B.Sc. in CSE, RUET. CGPA 3.61 / 4.00</dd></div>
         <div><dt>Based in</dt><dd>Dhaka, Bangladesh</dd></div>
       </dl>
 
-      <div class="links">
-        <a href="mailto:faizasrishty13@gmail.com">faizasrishty13@gmail.com</a>
-        <a href="https://github.com/nfsrishty">GitHub</a>
-        <a href="https://www.linkedin.com/in/nahian-faiza-srishty-bb0330354/">LinkedIn</a>
-        <a class="pri" href="Nahian-Faiza-Firdows-CV.pdf">Resume</a>
-      </div>
     </header>
 
     <!-- ---------- work ---------- -->
@@ -306,7 +358,6 @@ footer{margin-top:56px;font-family:var(--mono);font-size:11px;color:var(--ink-so
         <div class="entry-head">
           <h3>BongoSeek</h3>
           <a class="out" href="https://github.com/RaynaIslam/Bongo_Seek/tree/integration">GitHub →</a>
-          <span class="feat">Featured</span>
         </div>
         <p>An AI chatbot that runs DeepSeek's 1.5B model to generate responses.</p>
         <ul>
@@ -319,20 +370,20 @@ footer{margin-top:56px;font-family:var(--mono);font-size:11px;color:var(--ink-so
         <p class="credit"><b>My role</b>Backend, APIs, and authentication &middot; Team of 7 &middot; One-week build at Bdtask</p>
         <div class="shots" tabindex="0" role="group" aria-label="BongoSeek screenshots">
           <figure>
-            <a class="plate" href="assets/bongoseek-chat.webp" target="_blank" rel="noopener" aria-label="Open the full-size screenshot: Chat &middot; model response"><img src="assets/bongoseek-chat.webp" loading="lazy" decoding="async" alt="BongoSeek chat screen showing a question about the capital of Bangladesh and the model&#39;s answer, above the message input."></a>
-            <figcaption>Chat &middot; model response</figcaption>
-          </figure>
-          <figure>
-            <a class="plate" href="assets/bongoseek-verify.webp" target="_blank" rel="noopener" aria-label="Open the full-size screenshot: Two-factor &middot; email code"><img src="assets/bongoseek-verify.webp" loading="lazy" decoding="async" alt="BongoSeek verification screen prompting the user to enter the one-time code sent to their email address."></a>
-            <figcaption>Two-factor &middot; email code</figcaption>
-          </figure>
-          <figure>
             <a class="plate" href="assets/bongoseek-home.webp" target="_blank" rel="noopener" aria-label="Open the full-size screenshot: Landing page"><img src="assets/bongoseek-home.webp" loading="lazy" decoding="async" alt="BongoSeek landing page describing the chatbot, with a Get Started button and Login and Sign Up in the header."></a>
             <figcaption>Landing page</figcaption>
           </figure>
           <figure>
             <a class="plate" href="assets/bongoseek-signup.webp" target="_blank" rel="noopener" aria-label="Open the full-size screenshot: Create account"><img src="assets/bongoseek-signup.webp" loading="lazy" decoding="async" alt="BongoSeek Create Account form with username, email and password fields."></a>
             <figcaption>Create account</figcaption>
+          </figure>
+          <figure>
+            <a class="plate" href="assets/bongoseek-verify.webp" target="_blank" rel="noopener" aria-label="Open the full-size screenshot: Two-factor &middot; email code"><img src="assets/bongoseek-verify.webp" loading="lazy" decoding="async" alt="BongoSeek verification screen prompting the user to enter the one-time code sent to their email address."></a>
+            <figcaption>Two-factor &middot; email code</figcaption>
+          </figure>
+          <figure>
+            <a class="plate" href="assets/bongoseek-chat.webp" target="_blank" rel="noopener" aria-label="Open the full-size screenshot: Chat &middot; model response"><img src="assets/bongoseek-chat.webp" loading="lazy" decoding="async" alt="BongoSeek chat screen showing a question about the capital of Bangladesh and the model&#39;s answer, above the message input."></a>
+            <figcaption>Chat &middot; model response</figcaption>
           </figure>
         </div>
         <p class="shots-hint">Scroll for more &rarr;</p>
@@ -355,12 +406,12 @@ footer{margin-top:56px;font-family:var(--mono);font-size:11px;color:var(--ink-so
         <p class="credit"><b>My role</b>Solo project &middot; interface design, Laravel backend, and front end</p>
         <div class="shots" tabindex="0" role="group" aria-label="Boi Lagbe? screenshots">
           <figure>
-            <a class="plate" href="assets/boi-lagbe-dashboard.webp" target="_blank" rel="noopener" aria-label="Open the full-size screenshot: Dashboard &middot; requests and approvals"><img src="assets/boi-lagbe-dashboard.webp" loading="lazy" decoding="async" alt="Boi Lagbe? dashboard with a My Requests panel listing each request&#39;s type and status, beside a panel for requests received on the user&#39;s own books."></a>
-            <figcaption>Dashboard &middot; requests and approvals</figcaption>
-          </figure>
-          <figure>
             <a class="plate" href="assets/boi-lagbe-browse.webp" target="_blank" rel="noopener" aria-label="Open the full-size screenshot: Catalogue &middot; search and filters"><img src="assets/boi-lagbe-browse.webp" loading="lazy" decoding="async" alt="Boi Lagbe? catalogue of available books as cover cards with author and type, above search fields for title, author and category."></a>
             <figcaption>Catalogue &middot; search and filters</figcaption>
+          </figure>
+          <figure>
+            <a class="plate" href="assets/boi-lagbe-dashboard.webp" target="_blank" rel="noopener" aria-label="Open the full-size screenshot: Dashboard &middot; requests and approvals"><img src="assets/boi-lagbe-dashboard.webp" loading="lazy" decoding="async" alt="Boi Lagbe? dashboard with a My Requests panel listing each request&#39;s type and status, beside a panel for requests received on the user&#39;s own books."></a>
+            <figcaption>Dashboard &middot; requests and approvals</figcaption>
           </figure>
           <figure>
             <a class="plate" href="assets/boi-lagbe-history.webp" target="_blank" rel="noopener" aria-label="Open the full-size screenshot: History &middot; transaction status"><img src="assets/boi-lagbe-history.webp" loading="lazy" decoding="async" alt="Boi Lagbe? borrowing and buying history table listing each book with its request type, approval status and request date."></a>
@@ -485,7 +536,7 @@ footer{margin-top:56px;font-family:var(--mono);font-size:11px;color:var(--ink-so
 
     <!-- ---------- contact ---------- -->
     <div class="contact" id="contact">
-      <h2>Open to full-stack and software engineering roles.</h2>
+      <h2>Open to software engineering roles.</h2>
       <div class="links">
         <a href="mailto:faizasrishty13@gmail.com">faizasrishty13@gmail.com</a>
         <a href="https://github.com/nfsrishty">github.com/nfsrishty</a>
