@@ -24,7 +24,7 @@
   --body:"Source Serif 4",Georgia,serif;
   --mono:"JetBrains Mono",ui-monospace,monospace;
 
-  --wrap:1180px;
+  --wrap:1280px;
 }
 
 *{box-sizing:border-box}
@@ -67,7 +67,7 @@ a{color:inherit}
 
 /* ---------- front matter ---------- */
 .front{padding-top:6px}
-.front-lede{font-size:21px;line-height:1.55;max-width:52ch;margin:0 0 38px}
+.front-lede{font-size:21px;line-height:1.5;margin:0 0 38px}
 
 .facts{margin:0 0 34px;border-top:1.5px solid var(--ink)}
 .facts > div{display:grid;grid-template-columns:150px 1fr;gap:24px;
@@ -79,6 +79,8 @@ a{color:inherit}
   .facts > div{grid-template-columns:1fr;gap:3px;padding:11px 0}
   .front-lede{font-size:19px}
 }
+
+.hl{color:var(--pine);font-weight:600}
 
 .links{display:flex;flex-wrap:wrap;gap:10px}
 .links a{
@@ -96,11 +98,11 @@ section{margin-top:88px;scroll-margin-top:32px}
 
 .entry{padding:26px 0;border-bottom:1px solid var(--rule)}
 .entry-head{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline}
-.entry-head h3{font-family:var(--display);font-weight:600;font-size:22px;letter-spacing:-.015em;margin:0;max-width:34ch}
+.entry-head h3{font-family:var(--display);font-weight:600;font-size:22px;letter-spacing:-.015em;margin:0;max-width:44ch}
 .role{font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);letter-spacing:.03em}
 .when{font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);margin-left:auto}
-.entry p{margin:12px 0 0;max-width:68ch}
-.entry ul{margin:12px 0 0;padding-left:19px;max-width:68ch}
+.entry p{margin:12px 0 0}
+.entry ul{margin:12px 0 0;padding-left:19px}
 .entry li{margin:6px 0}
 .stack{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
 .stack span{font-family:var(--mono);font-size:11px;color:var(--pine);border:1px solid var(--rule);
@@ -125,7 +127,7 @@ section{margin-top:88px;scroll-margin-top:32px}
 /* contact */
 .contact{margin-top:88px;padding:40px 0 0;border-top:1.5px solid var(--ink)}
 .contact h2{font-family:var(--display);font-weight:800;font-size:clamp(28px,4vw,44px);
-  letter-spacing:-.03em;margin:0 0 18px;max-width:18ch}
+  letter-spacing:-.03em;margin:0 0 18px}
 footer{margin-top:56px;font-family:var(--mono);font-size:11px;color:var(--ink-soft)}
 </style>
 </head>
@@ -149,7 +151,7 @@ footer{margin-top:56px;font-family:var(--mono);font-size:11px;color:var(--ink-so
     </div>
     <div class="rail-foot">
       Dhaka, Bangladesh<br>
-      B.Sc. CSE, RUET
+      B.Sc. CSE, <span class="hl">RUET</span>
     </div>
   </aside>
 
@@ -159,15 +161,16 @@ footer{margin-top:56px;font-family:var(--mono);font-size:11px;color:var(--ink-so
     <!-- front matter: factual, no pitch -->
     <header class="front">
       <p class="front-lede">
-        Computer Science and Engineering graduate from RUET. I build web applications end to end: server-side logic and APIs,
-        front-end interfaces, and the design work in between.
+        Computer Science and Engineering graduate from <span class="hl">RUET</span>.
+        I build web applications end to end: server-side logic and APIs, front-end
+        interfaces, and the design work in between.
       </p>
 
       <dl class="facts">
         <div><dt>Discipline</dt><dd>Full-stack web development</dd></div>
         <div><dt>Server-side</dt><dd>Laravel, Flask, Node.js, MySQL, MongoDB</dd></div>
         <div><dt>Interface</dt><dd>React, Tailwind CSS, Figma, Webflow</dd></div>
-        <div><dt>Education</dt><dd>B.Sc. in CSE, RUET. CGPA 3.61 / 4.00</dd></div>
+        <div><dt>Education</dt><dd>B.Sc. in CSE, <span class="hl">RUET</span>. CGPA 3.61 / 4.00</dd></div>
         <div><dt>Based in</dt><dd>Dhaka, Bangladesh</dd></div>
       </dl>
 
@@ -338,7 +341,7 @@ footer{margin-top:56px;font-family:var(--mono);font-size:11px;color:var(--ink-so
       <div class="s-head"><h2>Background</h2></div>
 
       <div class="row">
-        <strong>Rajshahi University of Engineering and Technology</strong>
+        <strong>Rajshahi University of Engineering and Technology <span class="hl">(RUET)</span></strong>
         <span class="sub">B.Sc. in Computer Science and Engineering, CGPA 3.61 / 4.00</span>
         <span class="when">Graduated 11 Aug 2026</span>
       </div>
