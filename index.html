@@ -137,6 +137,11 @@ section{margin-top:88px;scroll-margin-top:32px}
   margin:14px 0 0;letter-spacing:.02em}
 .credit b{font-weight:400;color:var(--pine);letter-spacing:.1em;text-transform:uppercase;margin-right:9px}
 
+/* featured build marker */
+.feat{margin-left:auto;font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--pine);border:1px solid var(--pine);
+  padding:3px 9px;border-radius:999px;white-space:nowrap}
+
 /* project screenshots — horizontal strip */
 .shots{display:flex;gap:14px;margin-top:20px;padding-bottom:14px;
   overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;
@@ -161,7 +166,6 @@ section{margin-top:88px;scroll-margin-top:32px}
   .shots img{height:180px}
   .shots .plate{padding:7px}
 }
-}
 
 /* toolkit */
 .kit{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:0 40px}
@@ -171,10 +175,18 @@ section{margin-top:88px;scroll-margin-top:32px}
 .kit p{margin:0;font-size:16px}
 
 /* education / awards rows */
-.row{display:flex;flex-wrap:wrap;gap:4px 16px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--rule)}
-.row strong{font-family:var(--display);font-weight:600;font-size:17px}
-.row .sub{color:var(--ink-soft);font-size:15px}
-.row .when{margin-left:auto}
+.row{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:24px;row-gap:7px;
+  align-items:baseline;padding:18px 0;border-bottom:1px solid var(--rule)}
+.row strong{grid-column:1;grid-row:1;font-family:var(--display);font-weight:600;font-size:17px}
+.row .sub{grid-column:1;grid-row:2;color:var(--ink-soft);font-size:15px}
+.row .when{grid-column:2;grid-row:1;margin-left:0;justify-self:end;white-space:nowrap}
+.row .grade{grid-column:2;grid-row:2;justify-self:end;white-space:nowrap;
+  font-family:var(--mono);font-size:11px;color:var(--pine);
+  border:1px solid var(--rule);background:var(--paper-2);padding:3px 8px;border-radius:2px}
+@media (max-width:560px){
+  .row{grid-template-columns:1fr;row-gap:6px}
+  .row strong,.row .sub,.row .when,.row .grade{grid-column:1;grid-row:auto;justify-self:start}
+}
 
 /* contact */
 .contact{margin-top:88px;padding:40px 0 0;border-top:1.5px solid var(--ink)}
@@ -230,7 +242,7 @@ footer{margin-top:56px;font-family:var(--mono);font-size:11px;color:var(--ink-so
         <a href="mailto:faizasrishty13@gmail.com">faizasrishty13@gmail.com</a>
         <a href="https://github.com/nfsrishty">GitHub</a>
         <a href="https://www.linkedin.com/in/nahian-faiza-srishty-bb0330354/">LinkedIn</a>
-        <a class="pri" href="Nahian-Faiza-Firdows-CV.pdf">Resume &darr;</a>
+        <a class="pri" href="Nahian-Faiza-Firdows-CV.pdf">Resume</a>
       </div>
     </header>
 
@@ -293,7 +305,8 @@ footer{margin-top:56px;font-family:var(--mono);font-size:11px;color:var(--ink-so
       <article class="entry">
         <div class="entry-head">
           <h3>BongoSeek</h3>
-          <a class="out" href="https://github.com/RaynaIslam/Bongo_Seek/tree/integration">Source →</a>
+          <a class="out" href="https://github.com/RaynaIslam/Bongo_Seek/tree/integration">GitHub →</a>
+          <span class="feat">Featured</span>
         </div>
         <p>An AI chatbot that runs DeepSeek's 1.5B model to generate responses.</p>
         <ul>
@@ -306,20 +319,20 @@ footer{margin-top:56px;font-family:var(--mono);font-size:11px;color:var(--ink-so
         <p class="credit"><b>My role</b>Backend, APIs, and authentication &middot; Team of 7 &middot; One-week build at Bdtask</p>
         <div class="shots" tabindex="0" role="group" aria-label="BongoSeek screenshots">
           <figure>
-            <a class="plate" href="assets/bongoseek-home.webp" target="_blank" rel="noopener" aria-label="Open the full-size screenshot: Landing page"><img src="assets/bongoseek-home.webp" loading="lazy" decoding="async" alt="BongoSeek landing page describing the chatbot, with a Get Started button and Login and Sign Up in the header."></a>
-            <figcaption>Landing page</figcaption>
-          </figure>
-          <figure>
-            <a class="plate" href="assets/bongoseek-signup.webp" target="_blank" rel="noopener" aria-label="Open the full-size screenshot: Create account"><img src="assets/bongoseek-signup.webp" loading="lazy" decoding="async" alt="BongoSeek Create Account form with username, email and password fields."></a>
-            <figcaption>Create account</figcaption>
+            <a class="plate" href="assets/bongoseek-chat.webp" target="_blank" rel="noopener" aria-label="Open the full-size screenshot: Chat &middot; model response"><img src="assets/bongoseek-chat.webp" loading="lazy" decoding="async" alt="BongoSeek chat screen showing a question about the capital of Bangladesh and the model&#39;s answer, above the message input."></a>
+            <figcaption>Chat &middot; model response</figcaption>
           </figure>
           <figure>
             <a class="plate" href="assets/bongoseek-verify.webp" target="_blank" rel="noopener" aria-label="Open the full-size screenshot: Two-factor &middot; email code"><img src="assets/bongoseek-verify.webp" loading="lazy" decoding="async" alt="BongoSeek verification screen prompting the user to enter the one-time code sent to their email address."></a>
             <figcaption>Two-factor &middot; email code</figcaption>
           </figure>
           <figure>
-            <a class="plate" href="assets/bongoseek-chat.webp" target="_blank" rel="noopener" aria-label="Open the full-size screenshot: Chat &middot; model response"><img src="assets/bongoseek-chat.webp" loading="lazy" decoding="async" alt="BongoSeek chat screen showing a question about the capital of Bangladesh and the model&#39;s answer, above the message input."></a>
-            <figcaption>Chat &middot; model response</figcaption>
+            <a class="plate" href="assets/bongoseek-home.webp" target="_blank" rel="noopener" aria-label="Open the full-size screenshot: Landing page"><img src="assets/bongoseek-home.webp" loading="lazy" decoding="async" alt="BongoSeek landing page describing the chatbot, with a Get Started button and Login and Sign Up in the header."></a>
+            <figcaption>Landing page</figcaption>
+          </figure>
+          <figure>
+            <a class="plate" href="assets/bongoseek-signup.webp" target="_blank" rel="noopener" aria-label="Open the full-size screenshot: Create account"><img src="assets/bongoseek-signup.webp" loading="lazy" decoding="async" alt="BongoSeek Create Account form with username, email and password fields."></a>
+            <figcaption>Create account</figcaption>
           </figure>
         </div>
         <p class="shots-hint">Scroll for more &rarr;</p>
@@ -328,7 +341,7 @@ footer{margin-top:56px;font-family:var(--mono);font-size:11px;color:var(--ink-so
       <article class="entry">
         <div class="entry-head">
           <h3>Boi Lagbe?</h3>
-          <a class="out" href="https://github.com/nfsrishty/boi_lagbe">Source →</a>
+          <a class="out" href="https://github.com/nfsrishty/boi_lagbe">GitHub →</a>
         </div>
         <p>A full-stack book sharing platform for borrowing and buying books, with deadline enforcement.</p>
         <ul>
@@ -342,12 +355,12 @@ footer{margin-top:56px;font-family:var(--mono);font-size:11px;color:var(--ink-so
         <p class="credit"><b>My role</b>Solo project &middot; interface design, Laravel backend, and front end</p>
         <div class="shots" tabindex="0" role="group" aria-label="Boi Lagbe? screenshots">
           <figure>
-            <a class="plate" href="assets/boi-lagbe-browse.webp" target="_blank" rel="noopener" aria-label="Open the full-size screenshot: Catalogue &middot; search and filters"><img src="assets/boi-lagbe-browse.webp" loading="lazy" decoding="async" alt="Boi Lagbe? catalogue of available books as cover cards with author and type, above search fields for title, author and category."></a>
-            <figcaption>Catalogue &middot; search and filters</figcaption>
-          </figure>
-          <figure>
             <a class="plate" href="assets/boi-lagbe-dashboard.webp" target="_blank" rel="noopener" aria-label="Open the full-size screenshot: Dashboard &middot; requests and approvals"><img src="assets/boi-lagbe-dashboard.webp" loading="lazy" decoding="async" alt="Boi Lagbe? dashboard with a My Requests panel listing each request&#39;s type and status, beside a panel for requests received on the user&#39;s own books."></a>
             <figcaption>Dashboard &middot; requests and approvals</figcaption>
+          </figure>
+          <figure>
+            <a class="plate" href="assets/boi-lagbe-browse.webp" target="_blank" rel="noopener" aria-label="Open the full-size screenshot: Catalogue &middot; search and filters"><img src="assets/boi-lagbe-browse.webp" loading="lazy" decoding="async" alt="Boi Lagbe? catalogue of available books as cover cards with author and type, above search fields for title, author and category."></a>
+            <figcaption>Catalogue &middot; search and filters</figcaption>
           </figure>
           <figure>
             <a class="plate" href="assets/boi-lagbe-history.webp" target="_blank" rel="noopener" aria-label="Open the full-size screenshot: History &middot; transaction status"><img src="assets/boi-lagbe-history.webp" loading="lazy" decoding="async" alt="Boi Lagbe? borrowing and buying history table listing each book with its request type, approval status and request date."></a>
@@ -364,7 +377,7 @@ footer{margin-top:56px;font-family:var(--mono);font-size:11px;color:var(--ink-so
       <article class="entry">
         <div class="entry-head">
           <h3>Memories</h3>
-          <a class="out" href="https://github.com/nfsrishty/Project-">Source →</a>
+          <a class="out" href="https://github.com/nfsrishty/Project-">GitHub →</a>
         </div>
         <p>A simple interactive social media website.</p>
         <ul>
@@ -394,7 +407,7 @@ footer{margin-top:56px;font-family:var(--mono);font-size:11px;color:var(--ink-so
       <article class="entry" style="border-bottom:none">
         <div class="entry-head">
           <h3>Evaluating Automatic Metrics and LLM-as-Judge for Clinical Text Summarization</h3>
-          <a class="out" href="https://github.com/nfsrishty/Thesis">Source &rarr;</a>
+          <a class="out" href="https://github.com/nfsrishty/Thesis">GitHub →</a>
           <span class="when">Undergraduate thesis</span>
         </div>
         <ul>
@@ -448,12 +461,14 @@ footer{margin-top:56px;font-family:var(--mono);font-size:11px;color:var(--ink-so
 
       <div class="row">
         <strong>Rajshahi University of Engineering and Technology <span class="hl">(RUET)</span></strong>
-        <span class="sub">B.Sc. in Computer Science and Engineering, CGPA 3.61 / 4.00</span>
+        <span class="sub">B.Sc. in Computer Science and Engineering</span>
+        <span class="grade">CGPA 3.61 / 4.00</span>
         <span class="when">Graduated 11 Aug 2026</span>
       </div>
       <div class="row">
         <strong>Chattagram Cantonment Public College</strong>
-        <span class="sub">Higher Secondary Certificate, GPA 5.00 / 5.00</span>
+        <span class="sub">Higher Secondary Certificate</span>
+        <span class="grade">GPA 5.00 / 5.00</span>
         <span class="when">2018 &ndash; 2020</span>
       </div>
       <div class="row">
@@ -475,7 +490,7 @@ footer{margin-top:56px;font-family:var(--mono);font-size:11px;color:var(--ink-so
         <a href="mailto:faizasrishty13@gmail.com">faizasrishty13@gmail.com</a>
         <a href="https://github.com/nfsrishty">github.com/nfsrishty</a>
         <a href="https://www.linkedin.com/in/nahian-faiza-srishty-bb0330354/">LinkedIn</a>
-        <a class="pri" href="Nahian-Faiza-Firdows-CV.pdf">Resume &darr;</a>
+        <a class="pri" href="Nahian-Faiza-Firdows-CV.pdf">Resume</a>
       </div>
       <footer>Dhaka, Bangladesh</footer>
     </div>
