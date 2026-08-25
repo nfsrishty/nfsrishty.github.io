@@ -5,6 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Nahian Faiza Firdows</title>
 <meta name="description" content="Computer Science and Engineering graduate from RUET. Full-stack web development in Laravel, Flask, and React.">
+<link rel="canonical" href="https://nfsrishty.github.io/">
+
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nfsrishty.github.io/">
+<meta property="og:site_name" content="Nahian Faiza Firdows">
+<meta property="og:title" content="Nahian Faiza Firdows | Full-stack Developer">
+<meta property="og:description" content="Computer Science and Engineering graduate from RUET. Full-stack web development in Laravel, Flask, React and Node.js, plus LLM evaluation research.">
+<meta property="og:image" content="https://nfsrishty.github.io/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Nahian Faiza Firdows — full-stack web development portfolio.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nahian Faiza Firdows | Full-stack Developer">
+<meta name="twitter:description" content="Full-stack web development, and LLM evaluation research.">
+<meta name="twitter:image" content="https://nfsrishty.github.io/assets/og-cover.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -89,6 +108,8 @@ a{color:inherit}
   transition:background .15s,border-color .15s,color .15s;
 }
 .links a:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.links a.pri{border-color:var(--pine);color:var(--pine)}
+.links a.pri:hover{background:var(--pine);color:var(--paper);border-color:var(--pine)}
 
 /* ---------- sections ---------- */
 section{margin-top:88px;scroll-margin-top:32px}
@@ -110,6 +131,24 @@ section{margin-top:88px;scroll-margin-top:32px}
 .out{font-family:var(--mono);font-size:11.5px;text-decoration:none;border-bottom:1.5px solid var(--pine);
   padding-bottom:1px;color:var(--pine);white-space:nowrap}
 .out:hover{background:var(--pine);color:var(--paper);border-color:var(--pine)}
+
+/* contribution credit */
+.credit{font-family:var(--mono);font-size:11px;line-height:1.7;color:var(--ink-soft);
+  margin:14px 0 0;letter-spacing:.02em}
+.credit b{font-weight:400;color:var(--pine);letter-spacing:.1em;text-transform:uppercase;margin-right:9px}
+
+/* project screenshots */
+.shots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:20px}
+.shots figure{margin:0;min-width:0}
+.shots .plate{display:block;aspect-ratio:2/1;padding:10px;background:var(--paper-2);
+  border:1px solid var(--rule);border-radius:4px}
+.shots img{width:100%;height:100%;object-fit:contain;object-position:center;display:block}
+.shots figcaption{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink-soft);margin-top:8px}
+@media (max-width:620px){
+  .shots{grid-template-columns:1fr;gap:16px}
+  .shots .plate{padding:7px}
+}
 
 /* toolkit */
 .kit{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:0 40px}
@@ -178,6 +217,7 @@ footer{margin-top:56px;font-family:var(--mono);font-size:11px;color:var(--ink-so
         <a href="mailto:faizasrishty13@gmail.com">faizasrishty13@gmail.com</a>
         <a href="https://github.com/nfsrishty">GitHub</a>
         <a href="https://www.linkedin.com/in/nahian-faiza-srishty-bb0330354/">LinkedIn</a>
+        <a class="pri" href="Nahian-Faiza-Firdows-CV.pdf">Resume &darr;</a>
       </div>
     </header>
 
@@ -245,11 +285,24 @@ footer{margin-top:56px;font-family:var(--mono);font-size:11px;color:var(--ink-so
         <p>An AI chatbot that runs DeepSeek's 1.5B model to generate responses.</p>
         <ul>
           <li>Integrated the DeepSeek 1.5B model via Hugging Face to generate chat responses locally.</li>
-          <li>Implemented authentication and user sessions using JWT, plus two-factor authentication
-              and live email.</li>
+          <li>Implemented JWT authentication and user sessions, with two-factor authentication through
+              one-time codes delivered by email.</li>
           <li>Used Flask for backend API endpoints and React for a responsive chat interface.</li>
         </ul>
         <div class="stack"><span>Flask</span><span>React</span><span>MySQL</span><span>Hugging Face</span><span>JWT</span></div>
+        <p class="credit"><b>My role</b>Backend, APIs, and authentication &middot; Team of 7 &middot; One-week build at Bdtask</p>
+        <div class="shots">
+          <figure>
+            <div class="plate"><img src="assets/bongoseek-chat.webp" width="1400" height="805" loading="lazy" decoding="async"
+              alt="BongoSeek chat screen: a user question about the capital of Bangladesh with the model's answer displayed beneath it, above the message input."></div>
+            <figcaption>Chat interface &middot; model response</figcaption>
+          </figure>
+          <figure>
+            <div class="plate"><img src="assets/bongoseek-verify.webp" width="670" height="383" loading="lazy" decoding="async"
+              alt="BongoSeek email verification screen prompting the user to enter the one-time code sent to their email address."></div>
+            <figcaption>Two-factor &middot; email one-time code</figcaption>
+          </figure>
+        </div>
       </article>
 
       <article class="entry">
@@ -266,6 +319,18 @@ footer{margin-top:56px;font-family:var(--mono);font-size:11px;color:var(--ink-so
           <li>Implemented search and filtering by book title, author, and category.</li>
         </ul>
         <div class="stack"><span>Laravel</span><span>Blade</span><span>Tailwind CSS</span><span>MySQL</span></div>
+        <div class="shots">
+          <figure>
+            <div class="plate"><img src="assets/boi-lagbe-browse.webp" width="1400" height="647" loading="lazy" decoding="async"
+              alt="Boi Lagbe? catalogue page showing available books as cover cards with author and type, above search fields for title, author and category."></div>
+            <figcaption>Catalogue &middot; search and filtering</figcaption>
+          </figure>
+          <figure>
+            <div class="plate"><img src="assets/boi-lagbe-history.webp" width="1400" height="652" loading="lazy" decoding="async"
+              alt="Boi Lagbe? borrowing and buying history table listing each book with its request type, approval status and request date."></div>
+            <figcaption>Transaction history &middot; approval status</figcaption>
+          </figure>
+        </div>
       </article>
 
       <article class="entry">
@@ -280,6 +345,13 @@ footer{margin-top:56px;font-family:var(--mono);font-size:11px;color:var(--ink-so
           <li>Used Redux for state management and Material-UI for a responsive interface.</li>
         </ul>
         <div class="stack"><span>Node.js</span><span>Express</span><span>React</span><span>Redux</span><span>MongoDB</span></div>
+        <div class="shots">
+          <figure>
+            <div class="plate"><img src="assets/memories-feed.webp" width="1400" height="649" loading="lazy" decoding="async"
+              alt="Memories home page: a grid of user posts with images, tags, like counts and delete controls, beside the form for creating a new memory."></div>
+            <figcaption>Post feed &middot; create form &middot; likes</figcaption>
+          </figure>
+        </div>
       </article>
     </section>
 
@@ -289,6 +361,7 @@ footer{margin-top:56px;font-family:var(--mono);font-size:11px;color:var(--ink-so
       <article class="entry" style="border-bottom:none">
         <div class="entry-head">
           <h3>Evaluating Automatic Metrics and LLM-as-Judge for Clinical Text Summarization</h3>
+          <a class="out" href="https://github.com/nfsrishty/Thesis">Source &rarr;</a>
           <span class="when">Undergraduate thesis</span>
         </div>
         <ul>
@@ -369,6 +442,7 @@ footer{margin-top:56px;font-family:var(--mono);font-size:11px;color:var(--ink-so
         <a href="mailto:faizasrishty13@gmail.com">faizasrishty13@gmail.com</a>
         <a href="https://github.com/nfsrishty">github.com/nfsrishty</a>
         <a href="https://www.linkedin.com/in/nahian-faiza-srishty-bb0330354/">LinkedIn</a>
+        <a class="pri" href="Nahian-Faiza-Firdows-CV.pdf">Resume &darr;</a>
       </div>
       <footer>Dhaka, Bangladesh</footer>
     </div>
