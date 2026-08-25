@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nahian Faiza Firdows — Full-stack Developer</title>
+<meta name="description" content="Computer Science and Engineering graduate from RUET. Full-stack web development in Laravel, Flask, and React.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper:#F3F4F0;
+  --paper-2:#E9EBE4;
+  --ink:#141F1B;
+  --ink-soft:#4A5551;
+  --pine:#1F5D4C;
+  --signal:#5B45C7;
+  --rule:#CFD4CB;
+
+  --display:"Bricolage Grotesque",system-ui,sans-serif;
+  --body:"Source Serif 4",Georgia,serif;
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+
+  --wrap:1180px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--body);font-size:17px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+:focus-visible{outline:2.5px solid var(--signal);outline-offset:3px;border-radius:2px}
+
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 28px}
+
+/* ---------- shell ---------- */
+.shell{display:grid;grid-template-columns:230px 1fr;gap:64px;align-items:start}
+@media (max-width:900px){.shell{grid-template-columns:1fr;gap:0}}
+
+.rail{position:sticky;top:0;padding:44px 0;height:100vh;display:flex;flex-direction:column;justify-content:space-between}
+@media (max-width:900px){.rail{position:static;height:auto;padding:32px 0 0}}
+
+.mark{font-family:var(--display);font-weight:800;font-size:23px;line-height:1.12;letter-spacing:-.025em}
+.mark span{display:block;color:var(--pine)}
+
+.nav{margin-top:28px;display:flex;flex-direction:column;gap:9px;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase}
+.nav a{text-decoration:none;color:var(--ink-soft);display:flex;gap:10px;align-items:baseline;transition:color .15s}
+.nav a:hover{color:var(--pine)}
+.nav a .n{color:var(--rule);font-size:10px}
+@media (max-width:900px){.nav{flex-direction:row;flex-wrap:wrap;gap:14px;margin:18px 0 0}.nav a .n{display:none}}
+
+.rail-foot{font-family:var(--mono);font-size:11px;color:var(--ink-soft);line-height:1.7}
+@media (max-width:900px){.rail-foot{display:none}}
+
+.main{padding:46px 0 96px;min-width:0}
+
+/* ---------- front matter ---------- */
+.front{padding-top:6px}
+.front-lede{font-size:21px;line-height:1.55;max-width:52ch;margin:0 0 38px}
+
+.facts{margin:0 0 34px;border-top:1.5px solid var(--ink)}
+.facts > div{display:grid;grid-template-columns:150px 1fr;gap:24px;
+  padding:13px 0;border-bottom:1px solid var(--rule)}
+.facts dt{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-soft);padding-top:3px}
+.facts dd{margin:0;font-size:17px}
+@media (max-width:560px){
+  .facts > div{grid-template-columns:1fr;gap:3px;padding:11px 0}
+  .front-lede{font-size:19px}
+}
+
+.links{display:flex;flex-wrap:wrap;gap:10px}
+.links a{
+  font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-decoration:none;
+  padding:8px 13px;border:1px solid var(--rule);border-radius:999px;background:transparent;
+  transition:background .15s,border-color .15s,color .15s;
+}
+.links a:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+/* ---------- sections ---------- */
+section{margin-top:88px;scroll-margin-top:32px}
+.s-head{display:flex;align-items:baseline;gap:14px;padding-bottom:12px;border-bottom:1.5px solid var(--ink)}
+.s-head h2{font-family:var(--display);font-weight:600;font-size:15px;letter-spacing:.02em;margin:0}
+.s-head .count{font-family:var(--mono);font-size:11px;color:var(--ink-soft);margin-left:auto}
+
+.entry{padding:26px 0;border-bottom:1px solid var(--rule)}
+.entry-head{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline}
+.entry-head h3{font-family:var(--display);font-weight:600;font-size:22px;letter-spacing:-.015em;margin:0;max-width:34ch}
+.role{font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);letter-spacing:.03em}
+.when{font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);margin-left:auto}
+.entry p{margin:12px 0 0;max-width:68ch}
+.entry ul{margin:12px 0 0;padding-left:19px;max-width:68ch}
+.entry li{margin:6px 0}
+.stack{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.stack span{font-family:var(--mono);font-size:11px;color:var(--pine);border:1px solid var(--rule);
+  padding:3px 8px;border-radius:2px;background:var(--paper-2)}
+.out{font-family:var(--mono);font-size:11.5px;text-decoration:none;border-bottom:1.5px solid var(--pine);
+  padding-bottom:1px;color:var(--pine);white-space:nowrap}
+.out:hover{background:var(--pine);color:var(--paper);border-color:var(--pine)}
+
+/* thesis finding */
+.finding{margin-top:16px;padding:16px 18px;border-left:3px solid var(--signal);background:var(--paper-2);
+  max-width:68ch}
+.finding .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--signal);display:block;margin-bottom:6px}
+
+/* toolkit */
+.kit{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:0 40px}
+.kit div{padding:22px 0 24px;border-bottom:1px solid var(--rule)}
+.kit h4{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-soft);margin:0 0 8px}
+.kit p{margin:0;font-size:16px}
+
+/* education / awards rows */
+.row{display:flex;flex-wrap:wrap;gap:4px 16px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--rule)}
+.row strong{font-family:var(--display);font-weight:600;font-size:17px}
+.row .sub{color:var(--ink-soft);font-size:15px}
+.row .when{margin-left:auto}
+
+/* contact */
+.contact{margin-top:88px;padding:40px 0 0;border-top:1.5px solid var(--ink)}
+.contact h2{font-family:var(--display);font-weight:800;font-size:clamp(28px,4vw,44px);
+  letter-spacing:-.03em;margin:0 0 18px;max-width:18ch}
+footer{margin-top:56px;font-family:var(--mono);font-size:11px;color:var(--ink-soft)}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<div class="shell">
+
+  <!-- ---------- left rail ---------- -->
+  <aside class="rail">
+    <div>
+      <div class="mark">Nahian Faiza<span>Firdows</span></div>
+      <nav class="nav">
+        <a href="#work"><span class="n">01</span> Work</a>
+        <a href="#builds"><span class="n">02</span> Builds</a>
+        <a href="#research"><span class="n">03</span> Research</a>
+        <a href="#toolkit"><span class="n">04</span> Toolkit</a>
+        <a href="#background"><span class="n">05</span> Background</a>
+        <a href="#contact"><span class="n">06</span> Contact</a>
+      </nav>
+    </div>
+    <div class="rail-foot">
+      Dhaka, Bangladesh<br>
+      B.Sc. CSE, RUET
+    </div>
+  </aside>
+
+  <!-- ---------- main ---------- -->
+  <main class="main">
+
+    <!-- front matter: factual, no pitch -->
+    <header class="front">
+      <p class="front-lede">
+        Computer Science and Engineering graduate from Rajshahi University of Engineering
+        and Technology. I build web applications end to end — server-side logic and APIs,
+        front-end interfaces, and the design work in between.
+      </p>
+
+      <dl class="facts">
+        <div><dt>Discipline</dt><dd>Full-stack web development</dd></div>
+        <div><dt>Server-side</dt><dd>Laravel, Flask, Node.js, MySQL, MongoDB</dd></div>
+        <div><dt>Interface</dt><dd>React, Tailwind CSS, Figma, Webflow</dd></div>
+        <div><dt>Education</dt><dd>B.Sc. in CSE, RUET — CGPA 3.61 / 4.00</dd></div>
+        <div><dt>Based in</dt><dd>Dhaka, Bangladesh</dd></div>
+      </dl>
+
+      <div class="links">
+        <a href="mailto:faizasrishty13@gmail.com">faizasrishty13@gmail.com</a>
+        <a href="https://github.com/nfsrishty">GitHub</a>
+        <a href="https://www.linkedin.com/in/nahian-faiza-srishty-bb0330354/">LinkedIn</a>
+      </div>
+    </header>
+
+    <!-- ---------- work ---------- -->
+    <section id="work">
+      <div class="s-head"><h2>Work</h2><span class="count">03</span></div>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3>Bdtask</h3>
+          <span class="role">Trainee · Industrial attachment · Hybrid</span>
+          <span class="when">March 2025</span>
+        </div>
+        <ul>
+          <li>Built BongoSeek, an AI-powered chatbot web application, in one week with a team of 7,
+              after the company director challenged the group to produce a DeepSeek-style assistant.</li>
+          <li>Developed the application's Flask and MySQL backend, implementing application logic and
+              API integration, and supported front-end refinements.</li>
+          <li>Followed the company's development process end to end, collaborating through Git-based
+              version control.</li>
+        </ul>
+        <div class="stack"><span>Flask</span><span>MySQL</span><span>React</span><span>Git</span></div>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3>BracIT</h3>
+          <span class="role">Trainee · Industrial attachment · On-site</span>
+          <span class="when">March 2025</span>
+        </div>
+        <ul>
+          <li>Worked through the Software Development Life Cycle stage by stage with the team responsible
+              for each, following their workflows first-hand and completing the tasks set by some of them.</li>
+          <li>Analyzed a Business Requirement Document assigned by the technical lead, mapping client
+              requirements onto the software solution to be built from them.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3>Outlier</h3>
+          <span class="role">AI Trainer · Remote</span>
+          <span class="when">2024 — present</span>
+        </div>
+        <ul>
+          <li>Contributed to multiple AI training projects focused on Bengali-language model performance
+              and response quality.</li>
+          <li>Evaluated and ranked AI-generated responses for relevance, accuracy, and clarity, and reviewed
+              Bengali-language outputs for grammar, fluency, and factual accuracy.</li>
+          <li>Wrote and refined prompts for AI training tasks and assessed model responses against
+              project-specific guidelines.</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- ---------- builds ---------- -->
+    <section id="builds">
+      <div class="s-head"><h2>Builds</h2><span class="count">03</span></div>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3>BongoSeek</h3>
+          <a class="out" href="https://github.com/RaynaIslam/Bongo_Seek/tree/integration">Source →</a>
+        </div>
+        <p>An AI chatbot that runs DeepSeek's 1.5B model to generate responses.</p>
+        <ul>
+          <li>Integrated the DeepSeek 1.5B model via Hugging Face to generate chat responses locally.</li>
+          <li>Implemented authentication and user sessions using JWT, plus two-factor authentication
+              and live email.</li>
+          <li>Used Flask for backend API endpoints and React for a responsive chat interface.</li>
+        </ul>
+        <div class="stack"><span>Flask</span><span>React</span><span>MySQL</span><span>Hugging Face</span><span>JWT</span></div>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3>Boi Lagbe?</h3>
+          <a class="out" href="https://github.com/nfsrishty/boi_lagbe">Source →</a>
+        </div>
+        <p>A full-stack book sharing platform for borrowing and buying books, with deadline enforcement.</p>
+        <ul>
+          <li>Built a Laravel application letting users list, borrow, and buy books through approval workflows.</li>
+          <li>Designed a borrowing deadline system with automatic reminders and user flagging for overdue returns.</li>
+          <li>Developed user dashboards covering requests, approvals, transaction history, status tracking,
+              image uploads, and contact sharing.</li>
+          <li>Implemented search and filtering by book title, author, and category.</li>
+        </ul>
+        <div class="stack"><span>Laravel</span><span>Blade</span><span>Tailwind CSS</span><span>MySQL</span></div>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3>Memories</h3>
+          <a class="out" href="https://github.com/nfsrishty/Project-">Source →</a>
+        </div>
+        <p>A simple interactive social media website.</p>
+        <ul>
+          <li>Built full-stack CRUD functionality for posts including image uploads.</li>
+          <li>Developed a RESTful API handling post creation, update, deletion, and “like” operations.</li>
+          <li>Used Redux for state management and Material-UI for a responsive interface.</li>
+        </ul>
+        <div class="stack"><span>Node.js</span><span>Express</span><span>React</span><span>Redux</span><span>MongoDB</span></div>
+      </article>
+    </section>
+
+    <!-- ---------- research ---------- -->
+    <section id="research">
+      <div class="s-head"><h2>Research</h2><span class="count">01</span></div>
+      <article class="entry" style="border-bottom:none">
+        <div class="entry-head">
+          <h3>Evaluating Automatic Metrics and LLM-as-Judge for Clinical Text Summarization</h3>
+          <span class="when">Undergraduate thesis</span>
+        </div>
+        <ul>
+          <li>Evaluated ROUGE, BLEU, BERTScore, and LLM-as-a-Judge for clinical text summarization
+              using 300 MIMIC-IV cases and 900 generated summaries.</li>
+          <li>Used Qwen2.5-7B/14B, BART-Large-CNN, prompting, correlation analysis, case-clustered
+              bootstrap, and sensitivity analysis for metric evaluation.</li>
+        </ul>
+        <div class="finding">
+          <span class="lbl">Finding</span>
+          BERTScore showed the strongest and most stable agreement with LLM-based judgments, while the
+          LLM judge aligned more strongly with human ratings than the tested automatic metrics.
+        </div>
+        <div class="stack"><span>Qwen2.5</span><span>BART-Large-CNN</span><span>ROUGE</span><span>BLEU</span><span>BERTScore</span></div>
+      </article>
+    </section>
+
+    <!-- ---------- toolkit ---------- -->
+    <section id="toolkit">
+      <div class="s-head"><h2>Toolkit</h2></div>
+      <div class="kit">
+        <div>
+          <h4>Backend &amp; databases</h4>
+          <p>PHP, Python, Node.js, Express, Laravel, Flask, RESTful APIs, MySQL, MongoDB</p>
+        </div>
+        <div>
+          <h4>Frontend</h4>
+          <p>React, Redux, HTML, CSS, Tailwind CSS, Blade, Material-UI</p>
+        </div>
+        <div>
+          <h4>AI &amp; LLM</h4>
+          <p>Hugging Face model integration (DeepSeek 1.5B), prompt writing, response ranking,
+             Bengali-language evaluation</p>
+        </div>
+        <div>
+          <h4>Evaluation &amp; analysis</h4>
+          <p>ROUGE, BLEU, BERTScore, LLM-as-a-Judge, correlation and bootstrap analysis</p>
+        </div>
+        <div>
+          <h4>Design &amp; interface</h4>
+          <p>Figma, Webflow, responsive layout, Tailwind CSS</p>
+        </div>
+        <div>
+          <h4>Tools</h4>
+          <p>Git, GitHub, JWT and two-factor authentication, Kaggle</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------- background ---------- -->
+    <section id="background">
+      <div class="s-head"><h2>Background</h2></div>
+
+      <div class="row">
+        <strong>Rajshahi University of Engineering and Technology</strong>
+        <span class="sub">B.Sc. in Computer Science and Engineering — CGPA 3.61 / 4.00</span>
+        <span class="when">Graduated 11 Aug 2026</span>
+      </div>
+      <div class="row">
+        <strong>Chattagram Cantonment Public College</strong>
+        <span class="sub">Higher Secondary Certificate — GPA 5.00 / 5.00</span>
+        <span class="when">2018 — 2020</span>
+      </div>
+      <div class="row">
+        <strong>EDGE Certificate for PHP (Laravel)</strong>
+        <span class="sub">Bangladesh Computer Council</span>
+        <span class="when">2025</span>
+      </div>
+      <div class="row">
+        <strong>Technical Scholarship</strong>
+        <span class="sub">Rajshahi University of Engineering and Technology</span>
+        <span class="when">2023 — 2026</span>
+      </div>
+    </section>
+
+    <!-- ---------- contact ---------- -->
+    <div class="contact" id="contact">
+      <h2>Open to full-stack and software engineering roles.</h2>
+      <div class="links">
+        <a href="mailto:faizasrishty13@gmail.com">faizasrishty13@gmail.com</a>
+        <a href="https://github.com/nfsrishty">github.com/nfsrishty</a>
+        <a href="https://www.linkedin.com/in/nahian-faiza-srishty-bb0330354/">LinkedIn</a>
+      </div>
+      <footer>Dhaka, Bangladesh</footer>
+    </div>
+
+  </main>
+</div>
+</div>
+
+</body>
+</html>
