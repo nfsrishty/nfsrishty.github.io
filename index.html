@@ -39,6 +39,7 @@
   --signal:#5B45C7;
   --mint:#7FD1B4;
   --rule:#CFD4CB;
+  --nav-idle:#9AA39D;
 
   --display:"Bricolage Grotesque",system-ui,sans-serif;
   --body:"Source Serif 4",Georgia,serif;
@@ -72,9 +73,12 @@ a{color:inherit}
 
 .nav{display:flex;flex-direction:column;gap:9px;
   font-family:var(--mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase}
-.nav a{text-decoration:none;color:var(--ink-soft);display:flex;gap:10px;align-items:baseline;transition:color .15s}
+.nav a{text-decoration:none;color:var(--nav-idle);display:flex;gap:10px;align-items:baseline;
+  line-height:21px;transition:color .18s,font-size .18s}
 .nav a:hover{color:var(--pine)}
-.nav a .n{color:var(--rule);font-size:10px}
+.nav a .n{color:var(--nav-idle);font-size:10px;transition:color .18s}
+.nav a.is-active{color:var(--pine);font-size:13.5px}
+.nav a.is-active .n{color:var(--pine)}
 @media (max-width:900px){.nav{flex-direction:row;flex-wrap:wrap;gap:14px;margin:18px 0 0}.nav a .n{display:none}}
 
 .rail-foot{font-family:var(--mono);font-size:11px;color:var(--ink-soft);line-height:1.7}
@@ -118,8 +122,8 @@ a{color:inherit}
   box-shadow:0 0 0 3.5px rgba(127,209,180,.22)}
 .hero-band .links a{border-color:rgba(243,244,240,.24);color:var(--paper)}
 .hero-band .links a:hover{background:var(--paper);color:var(--ink);border-color:var(--paper)}
-.hero-band .links a.pri{border-color:var(--mint);color:var(--mint)}
-.hero-band .links a.pri:hover{background:var(--mint);color:var(--ink);border-color:var(--mint)}
+.hero-band .links a.pri{background:var(--mint);color:var(--ink);border-color:var(--mint)}
+.hero-band .links a.pri:hover{background:#A6E2CD;color:var(--ink);border-color:#A6E2CD}
 
 @media (max-width:900px){
   .hero-band{padding:40px 0 34px}
@@ -148,11 +152,19 @@ a{color:inherit}
   transition:background .15s,border-color .15s,color .15s;
 }
 .links a:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
-.links a.pri{border-color:var(--pine);color:var(--pine)}
-.links a.pri:hover{background:var(--pine);color:var(--paper);border-color:var(--pine)}
+.links a.pri{background:var(--pine);color:var(--paper);border-color:var(--pine)}
+.links a.pri:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 
 /* ---------- sections ---------- */
 section{margin-top:88px;scroll-margin-top:32px}
+
+/* scroll reveal — class is added by script, so no-JS shows everything */
+.reveal{opacity:0;transform:translateY(16px);
+  transition:opacity .6s cubic-bezier(.22,.61,.36,1),transform .6s cubic-bezier(.22,.61,.36,1)}
+.reveal.is-in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .reveal,.reveal.is-in{opacity:1;transform:none;transition:none}
+}
 .s-head{display:flex;align-items:baseline;gap:14px;padding-bottom:12px;border-bottom:1.5px solid var(--ink)}
 .s-head h2{font-family:var(--display);font-weight:600;font-size:15px;letter-spacing:.02em;margin:0}
 .s-head .count{font-family:var(--mono);font-size:11px;color:var(--ink-soft);margin-left:auto}
@@ -173,9 +185,11 @@ section{margin-top:88px;scroll-margin-top:32px}
 .out:hover{background:var(--pine);color:var(--paper);border-color:var(--pine)}
 
 /* contribution credit */
-.credit{font-family:var(--mono);font-size:11px;line-height:1.7;color:var(--ink-soft);
-  margin:14px 0 0;letter-spacing:.02em}
-.credit b{font-weight:400;color:var(--pine);letter-spacing:.1em;text-transform:uppercase;margin-right:9px}
+.credit{display:flex;flex-wrap:wrap;gap:3px 11px;align-items:baseline;
+  font-family:var(--mono);font-size:11.5px;line-height:1.65;color:var(--ink);
+  margin:16px 0 0;padding:9px 13px;letter-spacing:.02em;
+  background:var(--paper-2);border-left:2px solid var(--pine);border-radius:0 3px 3px 0}
+.credit b{font-weight:600;color:var(--pine);letter-spacing:.1em;text-transform:uppercase;margin:0}
 
 
 /* project screenshots — horizontal strip */
@@ -569,6 +583,54 @@ footer{margin-top:56px;font-family:var(--mono);font-size:11px;color:var(--ink-so
   window.addEventListener('resize', updateAll, {passive:true});
   window.addEventListener('load', updateAll);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(updateAll);
+})();
+
+/* active section in the left rail */
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('.nav a[href^="#"]'));
+  var targets = links.map(function(a){ return document.getElementById(a.getAttribute('href').slice(1)); });
+  if (!links.length) return;
+  var ticking = false;
+  function top(el){ return el.getBoundingClientRect().top + window.pageYOffset; }
+  function spy(){
+    ticking = false;
+    /* a section becomes current once its heading reaches near the top of the viewport */
+    var line = window.pageYOffset + 140;
+    var idx = -1;
+    targets.forEach(function(t, i){ if (t && top(t) <= line) idx = i; });
+    /* the last section is shorter than the viewport, so the line never reaches it:
+       once the page is scrolled to the bottom, it is the one you are looking at */
+    if (window.innerHeight + window.pageYOffset >= document.documentElement.scrollHeight - 2) {
+      idx = targets.length - 1;
+    }
+    links.forEach(function(a, i){ a.classList.toggle('is-active', i === idx); });
+  }
+  function onScroll(){ if (!ticking) { ticking = true; requestAnimationFrame(spy); } }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll, {passive:true});
+  window.addEventListener('load', spy);
+  spy();
+})();
+
+/* reveal sections on scroll */
+(function(){
+  if (!('IntersectionObserver' in window)) return;
+  var blocks = Array.prototype.slice.call(document.querySelectorAll('main.main > section, .contact'));
+  blocks.forEach(function(b){ b.classList.add('reveal'); });
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+    });
+  }, {rootMargin:'0px 0px -8% 0px', threshold:0.06});
+  blocks.forEach(function(b){ io.observe(b); });
+  /* safety net: anything still hidden after load gets shown */
+  window.addEventListener('load', function(){
+    setTimeout(function(){
+      blocks.forEach(function(b){
+        if (b.getBoundingClientRect().top < window.innerHeight) b.classList.add('is-in');
+      });
+    }, 60);
+  });
 })();
 </script>
 
